@@ -54,17 +54,17 @@
                         <Font size="18.0" />
                      </font>
                   </TextField>
-                  <Button fx:id="btn_add" layoutX="40.0" layoutY="235.0" mnemonicParsing="false" text="Add" AnchorPane.bottomAnchor="15.0">
+                  <Button fx:id="btn_add" layoutX="40.0" layoutY="235.0" mnemonicParsing="false" onAction="#handleAddAction" text="Add" AnchorPane.bottomAnchor="15.0">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btn_delete" layoutX="137.0" layoutY="208.0" mnemonicParsing="false" text="Delete" AnchorPane.bottomAnchor="15.0">
+                  <Button fx:id="btn_delete" layoutX="137.0" layoutY="208.0" mnemonicParsing="false" onAction="#handleDeleteAction" text="Delete" AnchorPane.bottomAnchor="15.0">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btn_edit" layoutX="252.0" layoutY="223.0" mnemonicParsing="false" text="Edit" AnchorPane.bottomAnchor="15.0">
+                  <Button fx:id="btn_edit" layoutX="252.0" layoutY="223.0" mnemonicParsing="false" onAction="#handleEditAction" text="Edit" AnchorPane.bottomAnchor="15.0">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -80,7 +80,7 @@
       </TitledPane>
    </left>
    <center>
-      <TableView editable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" BorderPane.alignment="CENTER">
+      <TableView fx:id="tableViewStudent" editable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" BorderPane.alignment="CENTER">
         <columns>
           <TableColumn fx:id="column_id" maxWidth="-1.0" minWidth="50.0" resizable="false" text="id" />
           <TableColumn fx:id="column_name" maxWidth="173.0" minWidth="50.0" prefWidth="168.0" resizable="false" text="Name" />
