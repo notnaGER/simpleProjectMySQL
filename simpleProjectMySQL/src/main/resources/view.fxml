@@ -80,7 +80,7 @@
       </TitledPane>
    </left>
    <center>
-      <TableView fx:id="tableViewStudent" editable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" BorderPane.alignment="CENTER">
+      <TableView fx:id="tableViewStudent" editable="true" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#handleChoiceAction" BorderPane.alignment="CENTER">
         <columns>
           <TableColumn fx:id="column_id" maxWidth="-1.0" minWidth="50.0" resizable="false" text="id" />
           <TableColumn fx:id="column_name" maxWidth="173.0" minWidth="50.0" prefWidth="168.0" resizable="false" text="Name" />
