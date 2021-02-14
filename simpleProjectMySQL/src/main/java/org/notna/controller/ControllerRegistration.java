@@ -56,6 +56,7 @@ public class ControllerRegistration implements Initializable {
     @FXML
     void addClickAction(MouseEvent event) {
     	this.tableViewStudent.getSelectionModel().clearSelection();
+    	Arrays.asList(this.txf_name,this.txf_mobile,this.txf_coure).stream().forEach(txf->txf.setText(""));
     }
 
     @FXML
