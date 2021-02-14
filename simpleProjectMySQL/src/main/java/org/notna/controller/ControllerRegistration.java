@@ -6,6 +6,7 @@ import java.util.Collections;
 import java.util.ResourceBundle;
 
 import org.notna.database.DbConnection;
+import org.notna.database.DbStatement;
 import org.notna.model.Student;
 
 import javafx.event.ActionEvent;
@@ -64,7 +65,7 @@ public class ControllerRegistration implements Initializable {
     void handleAddAction(ActionEvent event) {
     	this.tableViewStudent.getItems().add(new Student(this.txf_name.getText(), this.txf_mobile.getText(), this.txf_coure.getText()));
     	Arrays.asList(this.txf_name,this.txf_mobile,this.txf_coure).stream().forEach(txf->txf.setText(""));
-    	DbConnection.getConnection();
+    	DbStatement.insertStudent(new Student(this.txf_name.getText(), this.txf_mobile.getText(), this.txf_coure.getText()));
     }
 
     @FXML
