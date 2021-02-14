@@ -1,7 +1,11 @@
 package org.notna.database;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.notna.model.Student;
 
@@ -18,6 +22,21 @@ public class DbStatement {
 			e.printStackTrace();
 		}
 
+	}
+
+	public static List<Student> selectStudentList(){
+		List<Student> studentList = new ArrayList<Student>();
+		String sql = "SELECT * FROM programming_class";
+		try {
+			Statement select = DbConnection.getConnection().createStatement();
+			ResultSet result = select.executeQuery(sql);
+			while(result.next()){
+				studentList.add(new Student(result.getInt("id"), result.getString("name"), result.getString("mobile_number"), result.getString("course")));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return studentList;
 	}
 
 }
