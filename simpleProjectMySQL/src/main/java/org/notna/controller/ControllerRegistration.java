@@ -65,18 +65,18 @@ public class ControllerRegistration implements Initializable {
     void handleAddAction(ActionEvent event) {
     	DbStatement.insertStudent(new Student(this.txf_name.getText(), this.txf_mobile.getText(), this.txf_coure.getText()));
     	this.getStudentData();
-    	Arrays.asList(this.txf_name,this.txf_mobile,this.txf_coure).stream().forEach(txf->txf.setText(""));
     }
 
     @FXML
     void handleDeleteAction(ActionEvent event) {
     	DbStatement.deleteStudent(this.tableViewStudent.getSelectionModel().getSelectedItem());
-    	Arrays.asList(this.txf_name,this.txf_mobile,this.txf_coure).stream().forEach(txf->txf.setText(""));
+    	this.getStudentData();
     }
 
     @FXML
     void handleEditAction(ActionEvent event) {
     	DbStatement.updateStudent(this.tableViewStudent.getSelectionModel().getSelectedItem(), new Student(this.txf_name.getText(), this.txf_mobile.getText(), this.txf_coure.getText()));
+    	this.getStudentData();
     }
 
     @FXML
@@ -102,6 +102,7 @@ public class ControllerRegistration implements Initializable {
 	}
 
 	private void getStudentData(){
+		Arrays.asList(this.txf_name,this.txf_mobile,this.txf_coure).stream().forEach(txf->txf.setText(""));
 		this.tableViewStudent.getItems().clear();
 		this.tableViewStudent.getItems().addAll(DbStatement.selectStudentList());
 	}

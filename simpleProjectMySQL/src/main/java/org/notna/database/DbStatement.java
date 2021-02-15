@@ -44,6 +44,7 @@ public class DbStatement {
 		try {
 			PreparedStatement delete = DbConnection.getConnection().prepareStatement(sql);
 			delete.setInt(1, student.getId());
+			delete.execute();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
