@@ -70,15 +70,13 @@ public class ControllerRegistration implements Initializable {
 
     @FXML
     void handleDeleteAction(ActionEvent event) {
-    	this.tableViewStudent.getItems().remove(this.tableViewStudent.getSelectionModel().getSelectedItem());
+    	DbStatement.deleteStudent(this.tableViewStudent.getSelectionModel().getSelectedItem());
     	Arrays.asList(this.txf_name,this.txf_mobile,this.txf_coure).stream().forEach(txf->txf.setText(""));
     }
 
     @FXML
     void handleEditAction(ActionEvent event) {
-    	Student oldValue = this.tableViewStudent.getSelectionModel().getSelectedItem();
-    	Collections.replaceAll(this.tableViewStudent.getItems(), oldValue , new Student(this.txf_name.getText(), this.txf_mobile.getText(), this.txf_coure.getText()));
-
+    	DbStatement.updateStudent(this.tableViewStudent.getSelectionModel().getSelectedItem(), new Student(this.txf_name.getText(), this.txf_mobile.getText(), this.txf_coure.getText()));
     }
 
     @FXML

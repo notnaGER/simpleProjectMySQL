@@ -39,4 +39,29 @@ public class DbStatement {
 		return studentList;
 	}
 
+	public static void deleteStudent(Student student){
+		String sql = "DELETE FROM programming_class WHERE id = ?;";
+		try {
+			PreparedStatement delete = DbConnection.getConnection().prepareStatement(sql);
+			delete.setInt(1, student.getId());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static void updateStudent(Student oldStudent, Student newStudent){
+		String sql = "UPDATE programming_class SET name=?,mobile_number=?,course=? WHERE id = ?;";
+		try {
+			PreparedStatement update = DbConnection.getConnection().prepareStatement(sql);
+			update.setString(1, newStudent.getName());
+			update.setString(2, newStudent.getMobileNr());
+			update.setString(3, newStudent.getCourse());
+			update.setInt(4, oldStudent.getId());
+			update.execute();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+	}
+
 }
